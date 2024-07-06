@@ -1,7 +1,5 @@
 package com.darcan.auth.user.domain;
 
-import java.util.UUID;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -13,7 +11,7 @@ public class User {
 
     @Id
     @Column(name = "id", nullable = false)
-    private UUID id;
+    private String id;
 
     @Column(name = "name", nullable = false, length = 30)
     private String name;
