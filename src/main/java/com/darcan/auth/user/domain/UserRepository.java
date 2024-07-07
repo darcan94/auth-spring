@@ -1,6 +1,8 @@
 package com.darcan.auth.user.domain;
 
-import org.springframework.data.repository.ListCrudRepository;
+import java.util.UUID;
 
-public interface UserRepository extends ListCrudRepository<User, String>{   
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, UUID>{   
 }
