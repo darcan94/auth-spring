@@ -1,6 +1,7 @@
 package com.darcan.auth.user.application;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,5 +17,9 @@ public class UserService {
 
     public List<User> getAll(){
         return this.userRepository.findAll();
+    }
+
+    public Optional<User> findByName(String name){
+        return this.userRepository.findByName(name);
     }
 }
