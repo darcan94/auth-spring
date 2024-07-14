@@ -3,8 +3,8 @@ package com.darcan.auth.user.domain;
 import java.util.Optional;
 import java.util.UUID;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends JpaRepository<User, UUID>{ 
-    Optional<User> findByName(String username);  
+public interface UserRepository extends CrudRepository<UserEntity, UUID>{ 
+    Optional<UserEntity> findByName(String username);  
 }
