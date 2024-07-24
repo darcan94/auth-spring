@@ -2,8 +2,10 @@ package com.darcan.auth.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 //import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 //import org.springframework.security.core.userdetails.User;
 //import org.springframework.security.core.userdetails.UserDetails;
@@ -21,7 +23,7 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(customizeRequests -> {
                 customizeRequests
-                 //   .requestMatchers(HttpMethod.GET, "/api/**").
+                    .requestMatchers("/api/auth/**").permitAll()
                  //   .requestMatchers(HttpMethod.PUT).denyAll()
                     .anyRequest()
                     .authenticated();
@@ -49,6 +51,11 @@ public class SecurityConfig {
 
         return new InMemoryUserDetailsManager(admin, user);
     } */
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuracion) throws Exception{
+        return configuracion.getAuthenticationManager();
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder(){

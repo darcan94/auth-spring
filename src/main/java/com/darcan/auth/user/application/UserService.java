@@ -18,8 +18,8 @@ public class UserService implements UserDetailsService{
     @Autowired
     private UserRepository userRepository;
 
-    public Optional<UserEntity> findByName(String name){
-        return this.userRepository.findByName(name);
+    public Optional<UserEntity> findByEmail(String email){
+        return this.userRepository.findByEmail(email);
     }
 
     @Override
